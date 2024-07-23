@@ -4,10 +4,11 @@ import { MomentService } from './../../../services/moment.service';
 import { Moment } from './../../../Moment';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -25,9 +26,8 @@ export class HomeComponent {
       const data = items.data;
 
       data.map((item: any) => {
-        item.created_at = new Date(item.created_at!).toLocaleDateString(
-          'pt-BR'
-        );
+        // item.created_at = new Date(item.created_at).toLocaleDateString('pt-BR');
+
       });
       this.allMoments = data;
       this.moments = data;
