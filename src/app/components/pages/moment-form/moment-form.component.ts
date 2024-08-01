@@ -21,7 +21,7 @@ import { Moment } from '../../../Moment';
 export class MomentFormComponent {
   @Output() onSubmit = new EventEmitter<Moment>();
   @Input() btnText!: string;
-
+  @Input() momentData: Moment | null = null;
   momentForm!: FormGroup;
 
   constructor() {}

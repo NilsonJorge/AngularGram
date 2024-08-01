@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MessagesService } from './../../../services/messages.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-moment',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, RouterModule],
   templateUrl: './moment.component.html',
   styleUrl: './moment.component.css',
 })
