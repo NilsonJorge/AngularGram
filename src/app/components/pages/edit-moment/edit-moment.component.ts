@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MomentService } from './../../../services/moment.service';
 import { CommonModule } from '@angular/common';
 import { MomentFormComponent } from './../moment-form/moment-form.component';
+import { MessagesService } from './../../../services/messages.service';
 
 @Component({
   selector: 'app-edit-moment',
@@ -19,7 +20,9 @@ export class EditMomentComponent {
 
   constructor(
     private momentService: MomentService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messagesService: MessagesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +45,9 @@ export class EditMomentComponent {
     }
 
     await this.momentService.updateMoment(id!, formData).subscribe();
+
+    this.messagesService.add(`Moment ${id} foi atualizado com sucesso!`);
+
+    this.router.navigate(['/']);
   }
 }
